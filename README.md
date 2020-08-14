@@ -36,7 +36,7 @@ Edit `_config.yml`
 #### Note - Preferred Methods to Update Repo
 
 > There are 2 preferred ways to make changes to blog's files
-
+>
 > 1. Edit files within repo in browser at GitHub.com
 > 1. Clone repo and make updates locally, then push them to GitHub repo
 
