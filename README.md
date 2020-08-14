@@ -9,19 +9,25 @@
 1. ✅ fork this repo
 1. ✅ rename the repo to `wolven531.github.io`
 1. ✅ the Jekyll blog is viewable immediately at [https://wolven531.github.io](https://wolven531.github.io)
-  * if not, it can be forced to build by completing step 2
+    * if not, it can be forced to build by completing step 2
 
-### Step 2) Customize and View Site
+### ✅ Step 2) Customize and View Site
 
 Edit `_config.yml`
 
-* site name
-* description
-* avatar
-* other options
-  * easily turn on Google Analytics tracking
-  * Disqus commenting
-  * social icons
+* ✅ site name
+* ✅ description
+* ✅ avatar
+* ✅ other options
+    * ❌ easily turn on Google Analytics tracking
+    * ❌ Disqus commenting
+    * ✅ social icons
+        * ✅ email
+        * ✅ facebook
+        * ✅ github
+        * ✅ linkedin
+        * ✅ twitter
+        * ✅ youtube
 
 #### Note - Update Time
 
