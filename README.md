@@ -4,26 +4,35 @@
 
 ## Quick Start
 
-### ✅ Step 1) Fork Jekyll Now to your User Repository
+### ✅ Step 1) Fork Jekyll Now to User Repository
 
 1. ✅ fork this repo
 1. ✅ rename the repo to `wolven531.github.io`
 1. ✅ the Jekyll blog is viewable immediately at [https://wolven531.github.io](https://wolven531.github.io)
-  * if not, often it can be forced to build by completing step 2
+  * if not, it can be forced to build by completing step 2
 
-### Step 2) Customize and view your site
+### Step 2) Customize and View Site
 
-Enter your site name, description, avatar and many other options by editing the _config.yml file. You can easily turn on Google Analytics tracking, Disqus commenting and social icons here too.
+Edit `_config.yml`
 
-Making a change to _config.yml (or any file in your repository) will force GitHub Pages to rebuild your site with jekyll. Your rebuilt site will be viewable a few seconds later at <https://yourgithubusername.github.io> - if not, give it ten minutes as GitHub suggests and it'll appear soon
+* site name
+* description
+* avatar
+* other options
+  * easily turn on Google Analytics tracking
+  * Disqus commenting
+  * social icons
 
-> There are 3 different ways that you can make changes to your blog's files:
+#### Note - Update Time
 
-> 1. Edit files within your new username.github.io repository in the browser at GitHub.com (shown below).
-> 2. Use a third party GitHub content editor, like [Prose by Development Seed](http://prose.io). It's optimized for use with Jekyll making markdown editing, writing drafts, and uploading images really easy.
-> 3. Clone down your repository and make updates locally, then push them to your GitHub repository.
+> Making a change to `_config.yml` (or any file in repo) will force GitHub Pages to rebuild your site with jekyll. Rebuilt site will be available several seconds later at [https://wolven531.github.io](https://wolven531.github.io) - if not, give it ten minutes as GitHub suggests and it will appear soon
 
-![_config.yml](/images/config.png "_config.yml")
+#### Note - Preferred Methods to Update Repo
+
+> There are 2 preferred ways to make changes to blog's files
+
+> 1. Edit files within repo in browser at GitHub.com
+> 1. Clone repo and make updates locally, then push them to GitHub repo
 
 ### Step 3) Publish your first blog post
 
