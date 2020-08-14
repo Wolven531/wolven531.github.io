@@ -18,11 +18,11 @@ In a few minutes you'll be set up with a minimal, responsive blog like the one b
 
 ## Quick Start
 
-### Step 1) Fork Jekyll Now to your User Repository
+### ✅ Step 1) Fork Jekyll Now to your User Repository
 
-Fork this repo, then rename the repository to yourgithubusername.github.io.
+✅ Fork this repo, ✅ then rename the repository to wolven531.github.io.
 
-Your Jekyll blog will often be viewable immediately at <https://yourgithubusername.github.io> (if it's not, you can often force it to build by completing step 2)
+✅ Your Jekyll blog will often be viewable immediately at [https://wolven531.github.io](https://wolven531.github.io) (if it's not, you can often force it to build by completing step 2)
 
 ![Step 1](/images/step1.gif "Step 1")
 
