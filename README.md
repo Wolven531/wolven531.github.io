@@ -8,7 +8,7 @@
 
 1. ✅ fork this repo
 1. ✅ rename the repo to `wolven531.github.io`
-1. ✅ Your Jekyll blog will often be viewable immediately at [https://wolven531.github.io](https://wolven531.github.io)
+1. ✅ the Jekyll blog is viewable immediately at [https://wolven531.github.io](https://wolven531.github.io)
   * if not, often it can be forced to build by completing step 2
 
 ### Step 2) Customize and view your site
