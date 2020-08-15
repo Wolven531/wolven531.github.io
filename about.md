@@ -4,12 +4,16 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Hi! 👋 My name is Anthony. According to my GitHub profile:
 
-### More Information
+> I am a versatile software engineer with a passion for using technology to enrich people's lives.
 
-A place to include any other types of information that you'd like to include about yourself.
+That about sums me up pretty accurately. Basically, you can find me doing one of three things:
 
-### Contact me
+* Hanging out with my amazing son, Oliver 👶
+* Hanging out with my wonderful fiancé, Nicole 💃
+* Coding 💻
 
-[email@domain.com](mailto:email@domain.com)
+### Additionally
+
+Our family also includes four dogs (Misty, Faith, Larry, and Fifi) and two cats (Dio and Cloud). We all like to get together and binge watch Netflix and YouTube.
