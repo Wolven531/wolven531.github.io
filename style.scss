@@ -73,7 +73,7 @@ a {
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $orange;
+    color: $green;
   }
 }
 
@@ -202,7 +202,7 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $orange;
+  color: $darkGray;
   font-size: 16px;
 
   @include mobile {
