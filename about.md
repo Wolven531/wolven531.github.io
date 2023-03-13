@@ -16,4 +16,4 @@ That about sums me up pretty accurately. 👍 Basically, you can find me doing o
 
 ### Additionally
 
-Our family also includes five dogs 🐶 (Misty, Faith, Larry, Reggie, and Fifi) and three cats 🐱 (Dio, Drusilla, and Cloud). We all like to get together and binge watch Netflix and YouTube.
+Our family also includes five dogs 🐶 and three cats 🐱.
