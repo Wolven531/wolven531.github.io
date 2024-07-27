@@ -14,41 +14,70 @@ layout: default
     scrolling="no"
   ></iframe>
   <script>
-    // create a custom function, which takes two parameters:
+    // more info
+    //   - https://devnet.logianalytics.com/hc/en-us/articles/4419707622167-Inserting-Meta-and-Other-Tags-Using-Javascript
+    //   - https://mailchimp.com/resources/meta-tags-and-the-head-section-of-a-website/?igaag=154664726859&igaat=&igacm=20637339549&igacr=687230856184&igakw=&igamt=&igant=g&ds_c=DEPT_AOC_Google_Search_US_EN_NB_Acquire_Broad_DSA-Rsrc_US&ds_kids=p78250621731&ds_a_lid=dsa-2227026702184&ds_cid=71700000115207178&ds_agid=58700008574686663&gad_source=1&gbraid=0AAAAADh1Fp2k7RZEP64mIDrDN_OdwiDeu&gclid=CjwKCAjwko21BhAPEiwAwfaQCBsb5oIW9iURNBSfZlcVEvj4nm4iNGalEyJkugY6u0rP5pw3qkx2XhoCsKMQAvD_BwE&gclsrc=aw.ds
+
     const insertAfter = (newElement, targetElement) => {
-      // target is what you want it to go after, look for this element's parent
+      // target is what you want it to go after, look for parent of this element
       const parent = targetElement.parentNode;
-      // if the parent's lastchild is the targetElement...
+
+      // if the parent's lastchild is the targetElement
       if (parent.lastchild == targetElement) {
         // add the newElement after the target element
         parent.appendChild(newElement);
       } else {
-        // target has siblings, insert new element between the target and it's next sibling
+        // target has siblings, insert new element between the target and next sibling
         parent.insertBefore(newElement, targetElement.nextSibling);
+      }
+    };
+
+    const replaceMetaTagByName = (metaTagName, newContent) => {
+      const allMetaTags = document.getElementsByTagName("META");
+
+      for (let a = 0; a < allMetaTags.length; a++) {
+        const currentTag = allMetaTags[a];
+
+        if (currentTag.getAttribute("name") === metaTagName) {
+          currentTag.setAttribute("content", newContent);
+
+          return;
+        }
+      }
+    };
+    const replaceMetaTagByProperty = (metaTagProperty, newContent) => {
+      const allMetaTags = document.getElementsByTagName("META");
+
+      for (let a = 0; a < allMetaTags.length; a++) {
+        const currentTag = allMetaTags[a];
+
+        if (currentTag.getAttribute("property") === metaTagProperty) {
+          currentTag.setAttribute("content", newContent);
+
+          return;
+        }
       }
     };
 
     const titleTag = document.getElementsByTagName("TITLE")[0];
 
-    // <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    // <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-    const emulationTag = document.createElement("META");
-    emulationTag.setAttribute("http-equiv", "X-UA-Compatible");
-    emulationTag.setAttribute("content", "IE=EmulateIE7");
-
     // <meta content="en" name="language">
     const languageTag = document.createElement("META");
     languageTag.setAttribute("name", "language");
     languageTag.setAttribute("content", "en");
-
-    // <meta content="Calendar for Wolven531 Studios" name="description">
-    const descriptionTag = document.createElement("META");
-    descriptionTag.setAttribute("name", "description");
-    descriptionTag.setAttribute("content", "Calendar for Wolven531 Studios");
-
-    // call the custom function to do the insert
-    insertAfter(emulationTag, titleTag);
     insertAfter(languageTag, titleTag);
-    insertAfter(descriptionTag, titleTag);
+
+    const updatedTitle = "Calendar for Wolven531 Studios";
+    // !! the description meta tag is already added by website, so replace it
+    // <meta content="Calendar for Wolven531 Studios" name="description">
+    // const descriptionTag = document.createElement("META");
+    // descriptionTag.setAttribute("name", "description");
+    // descriptionTag.setAttribute("content", updatedTitle);
+    // insertAfter(descriptionTag, titleTag);
+    replaceMetaTagByName("description", updatedTitle);
+
+    // for open graph tags
+    replaceMetaTagByProperty("og:title", updatedTitle);
+    replaceMetaTagByProperty("og:description", updatedTitle);
   </script>
 </article>
