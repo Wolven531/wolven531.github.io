@@ -13,4 +13,42 @@ layout: default
     frameborder="0"
     scrolling="no"
   ></iframe>
+  <script>
+    // create a custom function, which takes two parameters:
+    const insertAfter = (newElement, targetElement) => {
+      // target is what you want it to go after, look for this element's parent
+      const parent = targetElement.parentNode;
+      // if the parent's lastchild is the targetElement...
+      if (parent.lastchild == targetElement) {
+        // add the newElement after the target element
+        parent.appendChild(newElement);
+      } else {
+        // target has siblings, insert new element between the target and it's next sibling
+        parent.insertBefore(newElement, targetElement.nextSibling);
+      }
+    };
+
+    const titleTag = document.getElementsByTagName("TITLE")[0];
+
+    // <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    // <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    const emulationTag = document.createElement("META");
+    emulationTag.setAttribute("http-equiv", "X-UA-Compatible");
+    emulationTag.setAttribute("content", "IE=EmulateIE7");
+
+    // <meta content="en" name="language">
+    const languageTag = document.createElement("META");
+    languageTag.setAttribute("name", "language");
+    languageTag.setAttribute("content", "en");
+
+    // <meta content="Calendar for Wolven531 Studios" name="description">
+    const descriptionTag = document.createElement("META");
+    descriptionTag.setAttribute("name", "description");
+    descriptionTag.setAttribute("content", "Calendar for Wolven531 Studios");
+
+    // call the custom function to do the insert
+    insertAfter(emulationTag, titleTag);
+    insertAfter(languageTag, titleTag);
+    insertAfter(descriptionTag, titleTag);
+  </script>
 </article>
