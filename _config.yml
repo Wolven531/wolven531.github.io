@@ -6,7 +6,7 @@
 name: Anthony Williams
 
 # Short bio or description (displayed in the header)
-description: Senior Software Engineer in Washington
+description: Technologist in Washington
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars.githubusercontent.com/u/2125913?s=400&u=abd856fc3015bfe5ba38693b0c99e9a672b8aa5f&v=4
@@ -19,7 +19,8 @@ avatar: https://avatars.githubusercontent.com/u/2125913?s=400&u=abd856fc3015bfe5
 footer-links:
   dribbble:
   email: anthony.williams.cs@gmail.com
-  facebook: Wolven531
+  # facebook: Wolven531
+  facebook:
   flickr:
   github: Wolven531/wolven531.github.io
   instagram:
@@ -28,7 +29,8 @@ footer-links:
   rss: # just type anything here for a working RSS icon
   twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: channel/UCYO5Jfu1HY1D9sV4mG4f9pw # channel/<your_long_string> or user/<user-name>
+  # youtube: channel/UCYO5Jfu1HY1D9sV4mG4f9pw # channel/<your_long_string> or user/<user-name>
+  youtube: 
   googleplus: # anything in your profile username that comes after plus.google.com/
 
 
