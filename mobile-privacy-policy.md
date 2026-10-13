@@ -10,7 +10,7 @@ The app engages in no ad targeting, data mining, or other activities that may co
 
 ## App-specific privacy policies
 
-{% assign studio = site.data.privacy.studio %}The apps listed below are published on Google Play under the developer name {{ studio.play_developer_name }} by {{ studio.legal_name }}, and each has its own privacy policy:
+{% assign studio = site.data.privacy.studio %}{% if studio.play_developer_name == studio.legal_name %}The apps listed below are published on Google Play under the developer name {{ studio.play_developer_name }}, which is also the legal entity responsible for them, and each has its own privacy policy:{% else %}The apps listed below are published on Google Play under the developer name {{ studio.play_developer_name }} by {{ studio.legal_name }}, and each has its own privacy policy:{% endif %}
 {% for app in site.data.privacy.apps %}{% assign policy_page = site.pages | where: "app_id", app.id | first %}{% if policy_page %}
 - [{{ app.app_name }} Privacy Policy]({{ site.baseurl }}{{ policy_page.url }}){% endif %}{% endfor %}
 

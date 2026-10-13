@@ -22,7 +22,7 @@ layout: default
     {% if app %}
     <p class="date">Effective date: <time datetime="{{ app.effective_date | date: '%Y-%m-%d' }}">{{ app.effective_date | date: "%B %-d, %Y" }}</time><br />Last updated: <time datetime="{{ app.last_updated | date: '%Y-%m-%d' }}">{{ app.last_updated | date: "%B %-d, %Y" }}</time></p>
 
-    <p>This privacy policy explains how the {{ app.app_name }} mobile app (package name <code>{{ app.package_name }}</code>) handles your information. {{ app.app_name }} is published on Google Play under the developer name {{ studio.play_developer_name }} by {{ studio.legal_name }}, which develops the app and is the legal entity responsible for it. In this policy, "we," "us," and "our" mean {{ studio.legal_name }}.</p>
+    <p>This privacy policy explains how the {{ app.app_name }} mobile app (package name <code>{{ app.package_name }}</code>) handles your information. {% if studio.play_developer_name == studio.legal_name %}{{ app.app_name }} is published on Google Play under the developer name {{ studio.play_developer_name }}, which is also the legal entity that develops the app and is responsible for it.{% else %}{{ app.app_name }} is published on Google Play under the developer name {{ studio.play_developer_name }} by {{ studio.legal_name }}, which develops the app and is the legal entity responsible for it.{% endif %} In this policy, "we," "us," and "our" mean {{ studio.legal_name }}.</p>
 
     <ul>
       <li><a href="{{ app.play_url }}">{{ app.app_name }} on Google Play</a></li>
@@ -41,7 +41,7 @@ layout: default
       <li>{{ item }}</li>
       {% endfor %}
     </ul>
-    <p>This information stays on your device. It is never sent to us or to anyone else.</p>
+    <p>We never receive this information. Android backup is usually turned on by default, so your device may include this information in your Google account backup. Other than that backup, it stays on your device. Google handles anything in that backup under the <a href="{{ privacy.google_privacy_url }}">Google Privacy Policy</a>, not this policy.</p>
     {% else %}
     <p>The app does not save any information about you on your device.</p>
     {% endif %}
@@ -57,14 +57,14 @@ layout: default
 
     <h2>Security</h2>
     {% if local_data_count > 0 %}
-    <p>The information the app saves never leaves your device. It is protected by the security features built into your device, such as your screen lock.</p>
+    <p>The information the app saves is protected by the security features built into your device, such as your screen lock. The app does not send it anywhere, and the only way it can leave your device is the Android backup described above.</p>
     {% else %}
     <p>The app does not collect, store, or send information about you, so none of your information leaves your device. Your device's built-in security features, such as your screen lock, continue to protect your device.</p>
     {% endif %}
 
     <h2>Data retention and deletion</h2>
     {% if local_data_count > 0 %}
-    <p>The information the app saves stays on your device until you clear the app's data in your device settings or uninstall the app. We do not have a copy of this information, so there is nothing for us to delete on request.</p>
+    <p>The information the app saves remains on your device until you clear the app's data in your device settings or uninstall the app. If your device has included it in a Google account backup, that backup copy can outlast both, and you control it through your Android or Google account backup settings. We do not have a copy of this information, so there is nothing for us to delete on request.</p>
     {% else %}
     <p>The app does not save information about you, and we do not have a copy of any of your information, so there is nothing to delete.</p>
     {% endif %}
