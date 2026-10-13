@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }} - {{ site.description }}</title>
+    {%- comment %}
+      Pages that set studio_chrome: true in their front matter (the privacy policy
+      pages) show the studio identity from _data/privacy.yml instead of the personal
+      site chrome in _config.yml, so the policy pages match the Play listing.
+    {% endcomment %}
+    <title>{% if page.studio_chrome %}{{ page.title }} - {{ site.data.privacy.studio.legal_name }}{% else %}{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }} - {{ site.description }}{% endif %}</title>
 
     {% include meta.html %}
 
@@ -10,7 +15,9 @@
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    {%- unless page.studio_chrome %}
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+    {%- endunless %}
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
@@ -19,6 +26,18 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
+          {%- if page.studio_chrome %}
+          {%- assign studio = site.data.privacy.studio %}
+          <div class="site-info">
+            <h1 class="site-name"><a href="{{ studio.website_url }}">{{ studio.legal_name }}</a></h1>
+            <p class="site-description">{{ studio.tagline }}</p>
+          </div>
+
+          <nav>
+            <a href="{{ site.baseurl }}/privacy/">All privacy policies</a>
+            <a href="{{ studio.website_url }}">{{ studio.legal_name }} website</a>
+          </nav>
+          {%- else %}
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
 
           <div class="site-info">
@@ -30,6 +49,7 @@
             <a href="{{ site.baseurl }}/">Blog</a>
             <a href="{{ site.baseurl }}/about">About</a>
           </nav>
+          {%- endif %}
         </header>
       </div>
     </div>
@@ -41,7 +61,12 @@
     <div class="wrapper-footer">
       <div class="container">
         <footer class="footer">
+          {%- if page.studio_chrome %}
+          {%- assign studio = site.data.privacy.studio %}
+          <p>&copy; <a href="{{ studio.website_url }}">{{ studio.legal_name }}</a></p>
+          {%- else %}
           {% include svg-icons.html %}
+          {%- endif %}
         </footer>
       </div>
     </div>
