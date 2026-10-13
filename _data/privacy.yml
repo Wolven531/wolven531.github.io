@@ -1,0 +1,98 @@
+# Privacy policy data for apps published on Google Play under the developer
+# name Wolven531 Studios LLC.
+#
+# _layouts/privacy-policy.html renders one policy page per app from this file.
+# The /privacy/ index and /mobile-privacy-policy/ list every app that has a page.
+#
+# Pages that set studio_chrome: true in their front matter render the studio
+# masthead, nav, and footer from the studio block below instead of the personal
+# site chrome in _config.yml (name, description, footer-links). The flag is set
+# on privacy/index.html and every per-app stub in privacy/.
+#
+# Schema:
+#   studio:              shared facts, written once for every app
+#     legal_name, play_developer_name, play_developer_url, website_url
+#     tagline:           one short factual line; shown under the studio name in
+#                        the masthead of every studio_chrome page
+#   google_privacy_url:  Google Privacy Policy link used on every page
+#   apps:                one entry per app
+#     id:                slug; must match the stub filename, its app_id, and its permalink
+#     app_name:          exactly as on the Play listing (quote values that contain ": ")
+#     package_name, play_url, support_email
+#     support_phone:     optional; omit the key if the listing has no phone
+#     content_rating:    for example ESRB Everyone
+#     families_policy:   true if the app is committed to the Google Play Families Policy
+#     effective_date, last_updated:  YYYY-MM-DD
+#     local_data:        list of what the app saves on the device; [] if nothing
+#     extra_sections:    optional list of {heading, body}; body is Markdown and must
+#                        not contain apostrophes or double quotes (kramdown smart quotes)
+#
+# To add an app (for example New Game, com.wolven531.newgame):
+#   1. Add an entry under apps below with id: new-game, keeping the list ordered
+#      alphabetically by id; that order drives the rendered link lists on
+#      /privacy/ and /mobile-privacy-policy/.
+#   2. Create privacy/new-game.md by copying privacy/war-card-game.md and changing
+#      title, description, app_id, and permalink. Keep studio_chrome: true in the
+#      front matter; without it the page renders the personal site chrome.
+
+studio:
+  legal_name: Wolven531 Studios LLC
+  play_developer_name: Wolven531 Studios LLC
+  play_developer_url: https://play.google.com/store/apps/dev?id=5650811530486829980
+  website_url: https://wolven531studios.com
+  tagline: Mobile apps published on Google Play under the developer name Wolven531 Studios LLC
+google_privacy_url: https://policies.google.com/privacy
+
+apps:
+  - id: dev-idle
+    app_name: Dev Idle
+    package_name: com.wolven531.devidle
+    play_url: https://play.google.com/store/apps/details?id=com.wolven531.devidle
+    support_email: wolven531@wolven531studios.com
+    content_rating: ESRB Everyone
+    families_policy: true
+    effective_date: 2026-10-12
+    last_updated: 2026-10-12
+    local_data:
+      - "Your game progress (your Bits balance, the upgrades and automations you have purchased, and your next milestone), so you can pick up where you left off"
+      - "Your audio (music and sound effect volume), haptics (vibration), and resource gain display settings"
+    extra_sections:
+      - heading: Links to other websites and apps
+        body: >-
+          The app includes links to websites and apps such as GitHub, LinkedIn, and Google Play.
+          Tapping a link opens it in a browser or in another app on your device, such as Google
+          Play. The app does not send information about you to these services, but the services
+          you open may collect information under their own privacy policies, which we do not
+          control.
+
+  - id: war-card-game
+    app_name: "War: The Card Game"
+    package_name: com.wolven531.war_card_game
+    play_url: https://play.google.com/store/apps/details?id=com.wolven531.war_card_game
+    support_email: vinny@wolven531studios.com
+    content_rating: ESRB Everyone
+    families_policy: true
+    effective_date: 2026-10-12
+    last_updated: 2026-10-12
+    local_data:
+      - "Your game progress (the state of your current game), so you can pick up where you left off"
+      - "Your audio (music) and haptics (vibration) settings"
+
+  - id: wolven531-studios
+    app_name: Wolven531 Studios
+    package_name: com.wolven531.wolven531studios
+    play_url: https://play.google.com/store/apps/details?id=com.wolven531.wolven531studios
+    support_email: wolven531@wolven531studios.com
+    content_rating: ESRB Everyone
+    families_policy: true
+    effective_date: 2026-10-12
+    last_updated: 2026-10-12
+    local_data: []
+    extra_sections:
+      - heading: Links to other websites and apps
+        body: >-
+          The app includes links to websites and apps such as GitHub, LinkedIn, and Google Play,
+          as well as email links. Tapping a link opens it in a browser or in another app on your
+          device, such as Google Play or your email app. The app does not send information about
+          you to these services, but the services you open may collect information under their
+          own privacy policies, which we do not control.

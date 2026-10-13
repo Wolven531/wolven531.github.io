@@ -1,0 +1,91 @@
+---
+layout: default
+---
+{% comment %}
+  Shared per-app privacy policy layout.
+  A stub page in privacy/ sets app_id in its front matter. This layout renders the
+  full policy from the entry in _data/privacy.yml whose id matches that app_id.
+  Studio facts (legal entity, Google Play developer name, website) come from
+  site.data.privacy.studio, so they are written in one place for every app.
+{% endcomment %}
+{% assign privacy = site.data.privacy %}
+{% assign studio = privacy.studio %}
+{% assign app = privacy.apps | where: "id", page.app_id | first %}
+{% assign local_data_count = app.local_data | size %}
+{% assign phone_digits = app.support_phone | remove: " " | remove: "-" | remove: "." | remove: "(" | remove: ")" %}
+{% capture email_link %}<a href="mailto:{{ app.support_email }}">{{ app.support_email }}</a>{% endcapture %}
+<article class="page">
+
+  <h1>{{ page.title }}</h1>
+
+  <div class="entry">
+    {% if app %}
+    <p class="date">Effective date: <time datetime="{{ app.effective_date | date: '%Y-%m-%d' }}">{{ app.effective_date | date: "%B %-d, %Y" }}</time><br />Last updated: <time datetime="{{ app.last_updated | date: '%Y-%m-%d' }}">{{ app.last_updated | date: "%B %-d, %Y" }}</time></p>
+
+    <p>This privacy policy explains how the {{ app.app_name }} mobile app (package name <code>{{ app.package_name }}</code>) handles your information. {% if studio.play_developer_name == studio.legal_name %}{{ app.app_name }} is published on Google Play under the developer name {{ studio.play_developer_name }}, which is also the legal entity that develops the app and is responsible for it.{% else %}{{ app.app_name }} is published on Google Play under the developer name {{ studio.play_developer_name }} by {{ studio.legal_name }}, which develops the app and is the legal entity responsible for it.{% endif %} In this policy, "we," "us," and "our" mean {{ studio.legal_name }}.</p>
+
+    <ul>
+      <li><a href="{{ app.play_url }}">{{ app.app_name }} on Google Play</a></li>
+      <li><a href="{{ studio.play_developer_url }}">{{ studio.play_developer_name }} developer page on Google Play</a></li>
+      <li><a href="{{ studio.website_url }}">{{ studio.legal_name }} website</a></li>
+    </ul>
+
+    <h2>Information we collect</h2>
+    <p>{{ app.app_name }} does not collect any personal or sensitive information. The app has no accounts or sign-in, shows no ads, and uses no analytics or tracking tools. The app does not send information about you to us or to anyone else, and we do not keep any of your information on any server.</p>
+
+    <h2>Information stored on your device</h2>
+    {% if local_data_count > 0 %}
+    <p>To work as expected, the app saves the following on your device:</p>
+    <ul>
+      {% for item in app.local_data %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <p>We never receive this information. Android backup is usually turned on by default, so your device may include this information in your Google account backup. Other than that backup, it stays on your device. Google handles anything in that backup under the <a href="{{ privacy.google_privacy_url }}">Google Privacy Policy</a>, not this policy.</p>
+    {% else %}
+    <p>The app does not save any information about you on your device.</p>
+    {% endif %}
+
+    <h2>How we use and share information</h2>
+    <p>Because we do not collect any information, we do not use, share, sell, or rent your information, and we do not share any information with third parties.</p>
+    <p>Google Play and the Android operating system may collect some information independently of the app, for example when you install or update it. Google handles that information under the <a href="{{ privacy.google_privacy_url }}">Google Privacy Policy</a>, not this policy.</p>
+
+    {% for section in app.extra_sections %}
+    <h2>{{ section.heading }}</h2>
+    {{ section.body | markdownify }}
+    {% endfor %}
+
+    <h2>Security</h2>
+    {% if local_data_count > 0 %}
+    <p>The information the app saves is protected by the security features built into your device, such as your screen lock. The app does not send it anywhere, and the only way it can leave your device is the Android backup described above.</p>
+    {% else %}
+    <p>The app does not collect, store, or send information about you, so none of your information leaves your device. Your device's built-in security features, such as your screen lock, continue to protect your device.</p>
+    {% endif %}
+
+    <h2>Data retention and deletion</h2>
+    {% if local_data_count > 0 %}
+    <p>The information the app saves remains on your device until you clear the app's data in your device settings or uninstall the app. If your device has included it in a Google account backup, that backup copy can outlast both, and you control it through your Android or Google account backup settings. We do not have a copy of this information, so there is nothing for us to delete on request.</p>
+    {% else %}
+    <p>The app does not save information about you, and we do not have a copy of any of your information, so there is nothing to delete.</p>
+    {% endif %}
+    <p>If you have questions about your information, contact us at {{ email_link }}.</p>
+
+    <h2>Children's privacy</h2>
+    <p>{{ app.app_name }} has a Google Play content rating of {{ app.content_rating }}{% if app.families_policy %}, and we are committed to following the Google Play Families Policy{% endif %}. We do not knowingly collect personal information from anyone, including children under 13. Parents and guardians with questions can contact us at {{ email_link }}.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We may update this privacy policy from time to time. When we do, we will post the updated policy at this page's address, <a href="{{ page.url | absolute_url }}">{{ page.url | absolute_url }}</a>, and change the "Last updated" date at the top of the page.</p>
+
+    <h2>Contact us</h2>
+    <p>If you have questions about this privacy policy or {{ app.app_name }}, contact {{ studio.legal_name }}:</p>
+    <ul>
+      <li>Email: {{ email_link }}</li>
+      {% if app.support_phone %}
+      <li>Phone: <a href="tel:{{ phone_digits }}">{{ app.support_phone }}</a></li>
+      {% endif %}
+    </ul>
+    {% else %}
+    <p>No privacy policy data was found for app_id "{{ page.app_id }}". Add an entry to _data/privacy.yml.</p>
+    {% endif %}
+  </div>
+</article>
